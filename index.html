@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">-->
+
+  <title>Lucas N. Egidio's Homepage</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="carousel.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+      <a class="navbar-brand" href="#"><strong>LUCAS N. EGIDIO</strong><br><small> <center> Ph.D.</center></small></a>
+      <button class="navbar-toggler" 
+      type="button" 
+      data-toggle="collapse" 
+      data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active" data-rel="1" id="nav-item-curr-page">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" data-rel="2">
+            <a class="nav-link" href="/software/">Software</a>
+          </li>
+          <li class="nav-item" data-rel="3">
+            <a class="nav-link" href="/teaching/">Teaching</a>
+          </li>
+          <li class="nav-item" data-rel="4">
+            <a class="nav-link" href="/cv/">CV</a>
+          </li>
+          <li class="nav-item" data-rel="5">
+            <a class="nav-link" href="/pub/">Publications</a>
+          </li>
+          <li class="nav-item" data-rel="6">
+            <a class="nav-link" href="/contact/">Contact</a>
+          </li>
+        </ul>
+       
+      </div>
+    </nav>
+  </header>
+
+
+  
+  <main role="main">
+    <section>
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="15000">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container" >
+              <div class="carousel-caption text-left">
+                <div id="particles-js" z-index="-1"></div>
+                <div>
+                  <div class="animated fadeInDown">
+                    <h1 class="h1-responsive">Let's get in touch!</h1>
+                    <p>Interested in research colaboration? </p>
+                    <p><a class="btn btn-lg btn-primary" href="contact/" role="button" id="button-top">Contact me</a></p>
+                  </div>              
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="carousel-item" >
+            <div class="pmsm_video" id="pmsm_video">
+              <!--Video source-->
+              <video class="video-c" autoplay loop muted>
+                <source src="pmsm_v2.mp4" type="video/mp4" />
+              </video>
+              <div class="mask rgba-purple-slight"></div>
+            </div>
+            <div class="carousel-caption">
+              <div class="animated fadeInDown">
+                <h1 class="h1-responsive">Checkout my work!</h1>
+                <p>Here I control a PMSM with a switched control strategy</p>
+                <p><a class="btn btn-lg btn-primary" href="pub/" role="button">Learn more</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="third-slide"
+              src="code.jpg" alt="Third slide" >
+            <div class="container" >
+              <div class="carousel-caption text-right">
+                <div class="animated fadeInDown">
+                  <h1 class="h1-responsive">Here's some code</h1>
+                  <p>Some of my source codes are available here</p>
+                  <p><a class="btn btn-lg btn-primary" href="software/" role="button">Learn more</a></p>
+                </div>
+              </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
+      <!-- Marketing messaging and featurettes
+        ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+            <img class="rounded-circle"
+              src="research.svg"
+              alt="Research" width="140" height="140">
+            <h3>Research Interests</h3>
+            <ul class="mylists">
+              <li>
+                Control Systems
+              </li>
+
+              <li>
+                Optimization
+              </li>
+
+              <li>
+                Machine Learning
+              </li>
+
+              <li>
+                Power Electronics
+              </li>
+            </ul>
+            <p><a class="btn btn-secondary" href="/pub/" role="button">Publications &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="rounded-circle"
+              src="logo_ucl.png"
+              alt="UCLouvain's logo" width="140" height="140">
+            <h3>Affiliation</h3>
+            <p>I'm with <a href="https://uclouvain.be/en/index.html">Université Catholique de Louvain</a>,  were I work as a postdoctotal researcher. </p>
+            <p><a class="btn btn-secondary" href="contact/" role="button">Contact &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="rounded-circle"
+              src="more.svg"
+              alt="More info" width="140" height="140">
+            <h3>More Info?</h3>
+            <p>Here you can find more information about me</p>
+            <div class="container" id="center">
+            
+              <a href="https://scholar.google.com/citations?user=_BWreAgAAAAJ&hl=en&oi=ao"><img src="scholar.svg" width="50" alt="Google Scholar" title="Google Scholar"> </a>
+            
+
+            
+              <a href="https://orcid.org/0000-0003-4096-5969"><img src="orcid.svg" width="50" alt="Orcid" title="Orcid"> </a>
+            
+            
+            
+              <a href="http://lattes.cnpq.br/6360282705868142"><img src="lattes.png" width="50" alt="Lattes CV (PT-BR)" title="Lattes CV (PT-BR)"> </a>
+            
+            
+          </div>
+            
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+    </section>
+      
+    
+  <section>
+  </section>
+    
+    <!-- FOOTER -->
+    <footer class="container">
+      <p class="float-right"><a href="#">Back to top</a></p>
+      
+    </footer>
+  </main>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <script src="particles/particles.js"></script>
+    <script src="particle-canvas.js"></script>
+
+    <script>
+      (function($) {
+        $('nav li').click(function() {
+          $(this).addClass('active').siblings('li').removeClass('active');
+          $('section:nth-of-type('+$(this).data('rel')+')').stop().fadeIn(400, 'linear').siblings('section').stop().fadeOut(400, 'linear'); 
+        });
+      })(jQuery);
+    </script>
+</body>
+
+</html>

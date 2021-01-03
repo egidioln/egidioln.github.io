@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">-->
+
+  <title>Lucas N. Egidio's Homepage</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../carousel.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+      <a class="navbar-brand" href="../"><strong>LUCAS N. EGIDIO</strong><br><small> &nbsp&nbsp Ph.D.</small></a>
+      <button class="navbar-toggler" 
+      type="button" 
+      data-toggle="collapse" 
+      data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" >
+            <a class="nav-link" href="../">Home </a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" href="../software/">Software</a>
+          </li>
+          <li class="nav-item active" id="nav-item-curr-page">
+            <a class="nav-link" href="../teaching">Teaching <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" data-rel="4">
+            <a class="nav-link" href="../cv">CV</a>
+          </li>
+          <li class="nav-item" data-rel="5">
+            <a class="nav-link" href="../pub">Publications</a>
+          </li>
+          <li class="nav-item" data-rel="6">
+            <a class="nav-link" href="../contact">Contact</a>
+          </li>
+        </ul>
+       
+      </div>
+    </nav>
+  </header>
+
+
+  
+  <main role="main">
+  <div class="container">
+    <h1 class="h1-title">
+      Teaching
+    </h1>
+    <p> &nbsp&nbsp I am currently not teaching any courses.</p>
+
+  </div>
+    
+    <!-- FOOTER -->
+    <footer class="container">
+      <p class="float-right"><a href="#">Back to top</a></p>
+      
+    </footer>
+  </main>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <script src="particles/particles.js"></script>
+    <script src="particle-canvas.js"></script>
+
+    <script>
+      (function($) {
+        $('nav li').click(function() {
+          $(this).addClass('active').siblings('li').removeClass('active');
+          $('section:nth-of-type('+$(this).data('rel')+')').stop().fadeIn(400, 'linear').siblings('section').stop().fadeOut(400, 'linear'); 
+        });
+      })(jQuery);
+    </script>
+</body>
+
+</html>
