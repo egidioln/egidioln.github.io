@@ -39,6 +39,12 @@ body {
   bottom: auto;
 }
 
+/* news tab */
+#topbar{
+height:200px;
+background-color:rgb(250,250,255);
+overflow:scroll;
+}
 
 /* Declare heights because of positioning of img element */
 
