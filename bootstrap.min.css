@@ -19,3 +19,39 @@
   border:1px none;
   background: #FFFFFF;
 }
+
+
+.upAppearing{
+    position: relative;
+    animation: upVideo 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    animation-duration: 1s;
+}
+
+.rightAppearing{
+    position: relative;
+    animation: rightVideo 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    animation-duration: 1s;
+    animation-delay: 0.5;   
+}
+
+@keyframes upVideo {
+  0% {
+    opacity: 0;
+    bottom: -200px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+
+@keyframes rightVideo {
+  0% {
+    opacity: 0;
+    right: -200px;
+  }
+  100% {
+    opacity: 1;
+    right: 0px;
+  }
+}
