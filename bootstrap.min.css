@@ -28,10 +28,11 @@
 }
 
 .rightAppearing{
+    opacity: 0;
     position: relative;
     animation: rightVideo 1s cubic-bezier(.74, .06, .4, .92) forwards;
     animation-duration: 1s;
-    animation-delay: 1s;   
+    animation-delay: 0.5s;   
 }
 
 @keyframes upVideo {
