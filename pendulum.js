@@ -5,7 +5,7 @@ var pressedKey = false;
 var controlOn = true;
 const LEFTARROW = 37;
 const RIGHTARROW = 39;
-const X_BOUND = 170;
+const X_BOUND = 160;
 const dT = 40; //ms
 const dTs = dT/1000; //s
 function startGame() {
@@ -17,7 +17,7 @@ function startGame() {
 var myGameArea = {
     canvas : document.getElementById("pendulumCanvas"),
     start : function() {
-        this.canvas.width = 400;
+        this.canvas.width = 380;
         this.canvas.height = 252;
         this.context = this.canvas.getContext("2d");
         this.interval = setInterval(updateGameArea, dT); 
@@ -143,7 +143,7 @@ function cartPendulum(x0,type) {
         ctx.translate(-this.x[0],-60)
         ctx.fillStyle = 'black';
         ctx.font = "20px Arial";
-        ctx.fillText(`"k": turn control ${controlOn?"OFF":"ON"}`, 10, 116);
+        ctx.fillText(`"k": turn control ${controlOn?"OFF":"ON"}`, 0, 116);
         if (controlOn){
             ctx.font = "15px Arial";
             ctx.fillStyle = "#2A3"     
