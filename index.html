@@ -4,7 +4,9 @@
 <head>
   <meta charset="utf-8">
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GKS100NKYL"></script>
+
+  <link rel="stylesheet" href="pendulum.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GKS100NKYL"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -73,7 +75,7 @@
   <main role="main">
     <section>
 
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="15000">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="15000" data-keyboard="false">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -256,7 +258,19 @@
     
   <section>
   </section>
-    
+
+  <div class="container">
+    <div id="divCanvas">
+      <canvas id="pendulumCanvas" width="200" height="200" style="border:1px solid #000000;">
+      </canvas>
+      </div>
+      <div id="controls">
+          <button type="button" class="btn btn-success m-3 p-0"  id="leftBtn" onmousedown="setControlLeft()" onmouseup="resetControl()"><h1>&larr;</h1></button>
+          <button type="button" class="btn btn-success m-3 p-0"  id="rightBtn" onmousedown="setControlRight()" onmouseup="resetControl()"><h1>&rarr;</h1></button>
+      </div>
+  </div>
+
+
     <!-- FOOTER -->
     <footer class="container">
       <p class="float-right"><a href="#">Back to top</a></p>
@@ -279,6 +293,7 @@
     <script src="particles/particles.js"></script>
     <script src="particle-canvas.js"></script>
 
+    <script src="pendulum.js"></script>
     <script>
       (function($) {
         $('nav li').click(function() {

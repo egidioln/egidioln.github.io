@@ -1,0 +1,20 @@
+#controls{
+    margin: auto;
+    text-align: center;
+}
+
+#pendulumCanvas{
+    padding: 0;
+    margin: auto;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border:1px solid #000000;
+    border-radius: 10px;
+}
+.btn-success{
+    width: 3em;
+    height: 3em;
+}
