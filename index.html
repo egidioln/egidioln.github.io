@@ -261,12 +261,12 @@
 
   <div class="container">
     <div id="divCanvas">
-      <canvas id="pendulumCanvas" width="200" height="200" style="border:1px solid #000000;">
+      <canvas id="pendulumCanvas" width="200" height="200" style="border:1px solid #000000;" onclick="toggleController()">
       </canvas>
       </div>
       <div id="controls">
-          <button type="button" class="btn btn-success m-3 p-0"  id="leftBtn" onmousedown="setControlLeft()" onmouseup="resetControl()"><h1>&larr;</h1></button>
-          <button type="button" class="btn btn-success m-3 p-0"  id="rightBtn" onmousedown="setControlRight()" onmouseup="resetControl()"><h1>&rarr;</h1></button>
+          <button type="button" class="btn btn-success m-3 p-0"  id="leftBtn" onmousedown="setControlLeft()" onmouseup="resetControl()"   ontouchstart="setControlLeft()" ontouchend="resetControl()"><h1>&larr;</h1></button>
+          <button type="button" class="btn btn-success m-3 p-0"  id="rightBtn" onmousedown="setControlRight()" onmouseup="resetControl()" ontouchstart="setControlRight()" ontouchend="resetControl()"><h1>&rarr;</h1></button>
       </div>
   </div>
 

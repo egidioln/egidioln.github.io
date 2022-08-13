@@ -62,6 +62,14 @@ function pidControl(x){
     return output
 }
 
+function toggleController(){
+    controlOn = !controlOn
+    err2 = 0
+    err1 = 0 
+    err0 = 0
+    output = 0
+}
+
 function controlLyapunovFunction(x){
     const dxs = [gameCart.f(x,1),gameCart.f(x,-1)]
     let dvp = 0
@@ -94,12 +102,7 @@ $(document).keyup(function (e) {
     else if(e.which==RIGHTARROW)
         resetControl()
     else if(e.which==75){
-        controlOn = !controlOn
-        err2 = 0
-        err1 = 0 
-        err0 = 0
-        output = 0
-    
+        toggleController();    
     }
 });
 
