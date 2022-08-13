@@ -62,6 +62,8 @@ function pidControl(x){
     return output
 }
 
+thetaInsideInterval= () => Math.abs(gameCart.x[2])<=Math.PI/2
+
 function toggleController(){
     controlOn = !controlOn
     err2 = 0
@@ -102,7 +104,8 @@ $(document).keyup(function (e) {
     else if(e.which==RIGHTARROW)
         resetControl()
     else if(e.which==75){
-        toggleController();    
+        if (thetaInsideInterval())
+            toggleController();    
     }
 });
 
@@ -120,7 +123,7 @@ function cartPendulum(x0,type) {
     this.update = function() {
         ctx = myGameArea.context;
         ctx.fillStyle = '#C34';
-        ctx.translate(this.x[0],60)
+        ctx.translate(this.x[0],50)
         ctx.fillRect(-30, 0, 60, 20,10);
         
         ctx.fillStyle = 'black';
@@ -140,15 +143,20 @@ function cartPendulum(x0,type) {
         ctx.fillStyle = '#23B';
         ctx.fillRect(-5, -10, 10, 150);
         ctx.rotate(-this.x[2]-Math.PI)
-        ctx.translate(-this.x[0],-60)
+        ctx.translate(-this.x[0],-50)
         ctx.fillStyle = 'black';
         ctx.font = "20px Arial";
-        ctx.fillText(`"k": turn control ${controlOn?"OFF":"ON"}`, -5, 116);
+        ctx.fillText(`"k" or "tap here" to turn control ${controlOn?"OFF":"ON"}`, -145, 116);
         if (controlOn){
             ctx.font = "15px Arial";
             ctx.fillStyle = "#291"     
-            ctx.fillText(`Automatic Control is ON`, -175, 115);
+            ctx.fillText(`Automatic Control is ON`, -175, 95);
         } 
+        if (!thetaInsideInterval()){
+            ctx.font = "15px Arial";
+            ctx.fillStyle = "#921"     
+            ctx.fillText(`Control Disabled: Move pendulum up and turn it on`, -175, 95);
+        }
         
     }
     this.f = function(x,u) {
@@ -210,6 +218,8 @@ function cartPendulum(x0,type) {
 
 function updateGameArea() {
     myGameArea.clear();
+    if (!thetaInsideInterval())
+        controlOn = false
     if (pressedKey == false && controlOn)
         force = pidControl(gameCart.x)    
     //force = controlLyapunovFunction(gameCart.x)
