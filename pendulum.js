@@ -2,7 +2,13 @@ var gameCart;
 var x;
 var force = 0 ;
 var pressedKey = false;
+var timerStart = 0.0
+var timerOn = false;
+var maxTime = 0
 var controlOn = true;
+var swingingUp = false;
+var touchStart;
+var lastTap= 0;
 const LEFTARROW = 37;
 const RIGHTARROW = 39;
 const X_BOUND = 150;
@@ -12,6 +18,7 @@ function startGame() {
     x0 = [0, 0, 0.05, 0]; //[px vx th om]
     gameCart = new cartPendulum(x0);
     myGameArea.start();
+    
 }
 
 var myGameArea = {
@@ -21,7 +28,15 @@ var myGameArea = {
         this.canvas.height = 252;
         this.context = this.canvas.getContext("2d");
         this.interval = setInterval(updateGameArea, dT); 
-        this.context.translate(this.canvas.width/2, this.canvas.height/2)       
+        this.context.translate(this.canvas.width/2, this.canvas.height/2)   
+        $(this.canvas).bind('touchstart', function (e){
+            toggleController()
+            const diff = e.timeStamp-lastTap
+            if(diff<500 && diff>0)
+                startSwingUp()
+        
+            lastTap = e.timeStamp
+        })  
     },
     stop : function() {
         clearInterval(this.interval);
@@ -61,26 +76,56 @@ function pidControl(x){
     output += (kp + ki*dT + kd/dTs) * err0 + (-kp - 2*kd/dTs) * err1 + (kd/dTs) * err2
     return output
 }
+const K = [       -0.0032,   -0.0365  , -4.6883 ,  -1.8745]
+function stateSpaceControl(x){
+    let u = 0
+    x.forEach(function(currentValue, index){
+        u -=currentValue*K[index]
+    })
+    //console.log(u)
+    return u
+}
+
+function startSwingUp(){
+    console.log("start swing up")
+    swingingUp = true
+    force = gameCart.x[0]<0? 1.0 : -1.0;
+    toggleSwingUp = () => {
+        force = -1*force
+        console.log(`toggle: ${force}`)
+        if (swingingUp)
+            window.setTimeout(toggleSwingUp,
+                gameCart.resonancePeriod*500 
+            );               
+    } 
+    window.setTimeout(toggleSwingUp,
+        gameCart.resonancePeriod*500 
+    );     
+}
 
 thetaInsideInterval= () => Math.abs(gameCart.x[2])<=Math.PI/2
 
+
+
+
 function toggleController(){
-    controlOn = !controlOn
-    err2 = 0
-    err1 = 0 
-    err0 = 0
-    output = 0
+controlOn = !controlOn
+swingingUp = false
+err2 = 0
+err1 = 0 
+err0 = 0
+output = 0
 }
 
 function controlLyapunovFunction(x){
-    const dxs = [gameCart.f(x,1),gameCart.f(x,-1)]
-    let dvp = 0
-    let dvn = 0
-    const weight = [00, 100, 0, 100];
-    x.forEach(function(currentValue, index){
-        dvp +=currentValue*dxs[0][index]*weight[index]
-        dvn +=currentValue*dxs[1][index]*weight[index]
-    })
+const dxs = [gameCart.f(x,1),gameCart.f(x,-1)]
+let dvp = 0
+let dvn = 0
+const weight = [00, 100, 0, 100];
+x.forEach(function(currentValue, index){
+    dvp +=currentValue*dxs[0][index]*weight[index]
+    dvn +=currentValue*dxs[1][index]*weight[index]
+})
     console.log(x)
     //console.log(Math.min(dvp,dvn))
     if(dvp<dvn)
@@ -107,6 +152,10 @@ $(document).keyup(function (e) {
         if (thetaInsideInterval())
             toggleController();    
     }
+    else if(e.which==83){
+        if (~thetaInsideInterval())
+            startSwingUp();    
+    }
 });
 
 function cartPendulum(x0,type) {
@@ -120,6 +169,9 @@ function cartPendulum(x0,type) {
     this.k = 1.3 //Ns/rad
     this.Mm = this.M+this.m
     this.I = this.m*this.L^2/12
+
+    this.resonancePeriod = Math.sqrt(this.L/this.g)*(2*Math.PI)
+    
     this.update = function() {
         ctx = myGameArea.context;
         ctx.fillStyle = '#C34';
@@ -146,17 +198,39 @@ function cartPendulum(x0,type) {
         ctx.translate(-this.x[0],-50)
         ctx.fillStyle = 'black';
         ctx.font = "20px Arial";
-        ctx.fillText(`"k" or "tap here" to turn control ${controlOn?"OFF":"ON"}`, -145, 116);
+        ctx.fillText(`"k" or tap to turn automatic control ${controlOn?"OFF":"ON"}`, -175, 116);
         if (controlOn){
             ctx.font = "15px Arial";
             ctx.fillStyle = "#291"     
             ctx.fillText(`Automatic Control is ON`, -175, 95);
+        }
+        else if (swingingUp){
+            ctx.font = "15px Arial";
+            ctx.fillStyle = "#771"     
+            ctx.fillText(`Swinging up...`, -175, 95);
         } 
-        if (!thetaInsideInterval()){
+        else if (!thetaInsideInterval()){
             ctx.font = "15px Arial";
             ctx.fillStyle = "#921"     
-            ctx.fillText(`Control Disabled: Move pendulum up and turn it on`, -175, 95);
+            ctx.fillText(`Control Disabled: swing up (with "s" or double tap)`, -175, 95);
         }
+        ctx.font = "15px Arial";
+        ctx.fillStyle = "#222"     
+        
+        if (timerOn){
+            const timeUp = Math.round(Date.now() / 1000) - timerStart
+            if (timeUp>maxTime)
+                maxTime=timeUp;
+                ctx.fillText(`Time up:\t${timeUp}`, 55, -110);
+         
+        }
+        else   
+            ctx.fillText(`Time up:\t-`, 55, -110);
+        ctx.fillText(`Record:\t${maxTime}`, 55, -96);
+
+        
+        
+        
         
     }
     this.f = function(x,u) {
@@ -164,15 +238,8 @@ function cartPendulum(x0,type) {
         const c = Math.cos(x[2])
         const mL = this.m*this.L
         const mLc = mL*c
-        // const u = force -this.d*x[1]
+        
         const ImL2 = this.I+mL*this.L 
-        // const uTerm = (-force*10 +mL*x[3]**2*s-this.d*x[1])
-        // const D1 = ImL2*this.Mm-(mL*c)**2
-        // dx2 = -((mL)^2*this.g*c*s+uTerm*ImL2)/D1
-        // dx4 = (this.Mm*(mL*this.g*s)-uTerm*mL*c)/D1
-
-        // dx2 = (u+mL*s*x[3]**2-this.m*this.g*c*s)/(this.Mm-this.m*c**2)
-        // dx4 = (u*c-this.Mm*this.g*s+mL*c*s*x[3])/(mL*c**2-this.Mm*this.L)
         
         const mgLs = mL*this.g*s -this.k*x[3]
         const Fterm = u*10+mL*s*x[3]**2 - this.d*x[1] 
@@ -189,19 +256,27 @@ function cartPendulum(x0,type) {
         ]
     }
     this.newPos = function() {
-        const dx = this.f(this.x,force)
-        for (let i=0;i<4;i++)
-            this.x[i] += dx[i]*dTs
+        var inForce = (force>10)? 10 : (force<-10)? -10: force
         if(this.x[0]>=X_BOUND)
         {
             this.x[0] = X_BOUND-1
             this.x[1] = 0
+            if(inForce>0)
+                inForce=0
         }
         else if(this.x[0]<=-X_BOUND)
         {
             this.x[0] = -X_BOUND+1
             this.x[1] = 0
+            if(inForce<0)
+                inForce=0
         }
+        
+        const dx = this.f(this.x,inForce)
+        
+        for (let i=0;i<4;i++)
+            this.x[i] += dx[i]*dTs
+        
         if(this.x[2]>=Math.PI)
         {
             this.x[2] -=2*Math.PI
@@ -218,10 +293,23 @@ function cartPendulum(x0,type) {
 
 function updateGameArea() {
     myGameArea.clear();
-    if (!thetaInsideInterval())
+    if (!thetaInsideInterval()){
         controlOn = false
+        timerOn = false
+    }
+    else if (!controlOn && !timerOn){
+        timerOn = true
+        timerStart = Math.round(Date.now() / 1000);
+    }
     if (pressedKey == false && controlOn)
-        force = pidControl(gameCart.x)    
+        //force = pidControl(gameCart.x)
+        force = stateSpaceControl(gameCart.x)   
+    else if (pressedKey==false && !swingingUp)
+        force = 0 
+    else if (swingingUp && Math.abs(gameCart.x[2])<Math.PI/10){
+        swingingUp=false
+        console.log("swung up")
+    }
     //force = controlLyapunovFunction(gameCart.x)
     gameCart.newPos();
     gameCart.update();
