@@ -18,15 +18,16 @@
   <meta name="author" content="">
   <link rel="icon" href="../favicon.ico" type="image/icon type">
 
-  <title>Lucas N. Egidio's Homepage - Software</title>
+  <title>Lucas N. Egidio's Homepage - Pendulum Game</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
 
   <!-- Bootstrap core CSS -->
   <link href="../bootstrap.min.css" rel="stylesheet">
-
+ 
   <!-- Custom styles for this template -->
   <link href="../carousel.css" rel="stylesheet">
+  <link rel="stylesheet" href="pendulum.css">
 </head>
 
 <body>
@@ -41,15 +42,15 @@
       aria-controls="navbarCollapse" 
       aria-expanded="false" 
       aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <span class="navbar-toggler-icon"></span>
+    </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item" >
             <a class="nav-link" href="../">Home </a>
           </li>
-          <li class="nav-item active" id="nav-item-curr-page">
-            <a class="nav-link" href="../software/">Software <span class="sr-only">(current)</span></a>
+          <li class="nav-item" >
+            <a class="nav-link" href="../software/">Software</a>
           </li>
           <li class="nav-item" data-rel="3">
             <a class="nav-link" href="../teaching">Teaching</a>
@@ -63,10 +64,12 @@
           <li class="nav-item" data-rel="6">
             <a class="nav-link" href="../contact">Contact</a>
           </li>
+            
         </ul>
-        <span class="nav-item mr-sm-2" data-rel="7">
-          <a class="nav-link" href="/pendulum/"><img id="pendulum-icon" src="../pendulum_icon.svg" alt="Pendulum Game" title="Pendulum Game" width="34" height="34"></a>
-        </span>   
+       
+        <span class="nav-item mr-sm-2 active" data-rel="7" id="nav-item-curr-page">
+          <a class="nav-link" href="#"><img id="pendulum-icon" src="../pendulum_icon.svg" alt="Pendulum Game" title="Pendulum Game" width="34" height="34"><span class="sr-only">(current)</span></a>
+        </span>
       </div>
     </nav>
   </header>
@@ -76,25 +79,30 @@
   <main role="main">
     <div class="container">
       <h1 class="h1-title">
-        Software
+        Pendulum Game
       </h1>
        &nbsp&nbsp
-      <h4> Here you will find some projects I am involved with: </h4>
-      <div class="container border upAppearing"> 
-      <a href="https://github.com/dionysos-dev/Dionysos.jl"><img src="https://github.com/dionysos-dev/Dionysos.jl/raw/master/logo.png" height="100px" style="background: #FFFFFF;"></a><p>
-      Dionysos is the software of the ERC project Learning to control (L2C). In view of the Cyber-Physical Revolution, the only sensible way of controlling these complex systems is often by discretizing the different variables, thus transforming the model into a simple combinatorial problem on a finite-state automaton, called an abstraction of this system. The goal of L2C is to transform this approach into an effective, scalable, cutting-edge technology that will address the CPS challenges and unlock their potential. This ambitious goal will be achieved by leveraging powerful tools from Mathematical Engineering.
-      </p>
+      <h4> Try this inverted pendulum game! Use the arrows to push the cart around and keep the balance.</h4>
+      <div class="container">
+        <div id="divCanvas">
+          <canvas id="pendulumCanvas" width="200" height="200" style="border:1px solid #000000;">
+          </canvas>
+          </div>
+          <div id="controls">
+              <button type="button" class="btn btn-success m-2" style="font-size: 3rem; padding: 10px 20px;"  id="leftBtn" onmousedown="setControlLeft()" onmouseup="resetControl()"   ontouchstart="setControlLeft()" ontouchend="resetControl()"><span class="arrow-button">&larr;</span></button>
+              <button type="button" class="btn btn-success m-2" style="font-size: 3rem; padding: 10px 20px;" id="rightBtn" onmousedown="setControlRight()" onmouseup="resetControl()" ontouchstart="setControlRight()" ontouchend="resetControl()"><span class="arrow-button">&rarr;</span></button>
+          </div>
       </div>
     </div>
-    &nbsp
+    <!-- &nbsp -->
     <!-- FOOTER -->
-    <footer class="container">
+    <!-- <footer class="container">
       <div class="container">
         <p class="float-left rightAppearing"> <a class="btn btn-secondary" href="https://github.com/egidioln" role="button"><img src="../github.svg" width="50" alt="Github" title="Github"><br>Check out my Github profile &raquo; </a></p>  
       </div>
       <p class="float-right"><a href="#">Back to top</a></p>
       
-    </footer>
+    </footer> -->
     
   </main>
 
@@ -111,6 +119,7 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 
+    <script src="pendulum.js"></script>
     <script>
       (function($) {
         $('nav li').click(function() {

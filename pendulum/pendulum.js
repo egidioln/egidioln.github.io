@@ -221,12 +221,12 @@ function cartPendulum(x0,type) {
             const timeUp = Math.round(Date.now() / 1000) - timerStart
             if (timeUp>maxTime)
                 maxTime=timeUp;
-                ctx.fillText(`Time up:\t${timeUp}`, 55, -110);
+                ctx.fillText(`Time up:\t${timeUp} s`, 55, -110);
          
         }
         else   
             ctx.fillText(`Time up:\t-`, 55, -110);
-        ctx.fillText(`Record:\t${maxTime}`, 55, -96);
+        ctx.fillText(`Best:\t${maxTime} s`, 55, -96);
 
         
         
