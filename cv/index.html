@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="utf-8">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GKS100NKYL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-GKS100NKYL');
@@ -31,22 +31,19 @@
 
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-      <a class="navbar-brand" href="../"><strong>LUCAS N. EGIDIO</strong><br><small> <center> Ph.D.</center></small></a>
-      <button class="navbar-toggler" 
-      type="button" 
-      data-toggle="collapse" 
-      data-target="#navbarCollapse"
-      aria-controls="navbarCollapse" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation">
+      <a class="navbar-brand" href="../"><strong>LUCAS N. EGIDIO</strong><br><small>
+          <center> Ph.D.</center>
+        </small></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item" >
+          <li class="nav-item">
             <a class="nav-link" href="../">Home </a>
           </li>
-          <li class="nav-item " >
+          <li class="nav-item ">
             <a class="nav-link" href="../software/">Software</a>
           </li>
           <li class="nav-item" data-rel="3">
@@ -63,14 +60,15 @@
           </li>
         </ul>
         <span class="nav-item mr-sm-2" data-rel="7">
-          <a class="nav-link" href="/pendulum/"><img id="pendulum-icon" src="../pendulum_icon.svg" alt="Pendulum Game" title="Pendulum Game" width="34" height="34"></a>
-        </span>   
+          <a class="nav-link" href="/pendulum/"><img id="pendulum-icon" src="../pendulum_icon.svg" alt="Pendulum Game"
+              title="Pendulum Game" width="34" height="34"></a>
+        </span>
       </div>
     </nav>
   </header>
 
 
-  
+
   <main role="main">
     <div class="container">
       <h1 class="h1-title">
@@ -83,17 +81,23 @@
         <div class=".col-sm-2">
         </div>
         <div class="col upAppearing">
-          <img src="../photo_m.png" height="150px" style="float: left; border-radius: 30%; margin-right: 1rem;"> 
-          <p>Lucas N. Egidio was born in Ipatinga, Brazil in 1992. He received the B.Sc. degree in Control and Automation Engineering in 2015, the M.Sc. degree in Mechanical Engineering in 2016, and the Ph.D. degree in Mechanical Engineering in 2020 from the University of Campinas (UNICAMP), Brazil. In 2018, he spent 6 months at the University of California, Santa Barbara, as a Visiting Scholar. During  2020 he was a Postdoctoral Fellow at Linköping University, Sweden. Currently, he is with Université Catholique de Louvain, where he works as a postdoctotal researcher. His research interests include switched systems, convex optimization, machine learning, and control applications in power electronics.
+          <img src="../photo_m.png" height="150px" style="float: left; border-radius: 30%; margin-right: 1rem;">
+          <p>Lucas N. Egidio was born in Ipatinga, Brazil in 1992. He received the B.Sc. degree in Control and
+            Automation Engineering in 2015, the M.Sc. degree in Mechanical Engineering in 2016, and the Ph.D. degree in
+            Mechanical Engineering in 2020 from the University of Campinas (UNICAMP), Brazil. In 2018, he spent 6 months
+            at the University of California, Santa Barbara, as a Visiting Scholar. During 2020 he was a Postdoctoral
+            Fellow at Linköping University, Sweden. Between 2021 and 2023, he was with Université Catholique de Louvain, where he
+            worked as a postdoctotal researcher in the context of the ERC project "Learning to Control". His research interests include switched systems, convex optimization,
+            machine learning, and control applications in power electronics.
           </p>
         </div>
       </div>
     </div>
-    
+
     <!-- FOOTER -->
     <footer class="container">
       <p class="float-right"><a href="#">Back to top</a></p>
-      
+
     </footer>
   </main>
 
@@ -109,17 +113,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-    <script src="particles/particles.js"></script>
-    <script src="particle-canvas.js"></script>
+  <script src="particles/particles.js"></script>
+  <script src="particle-canvas.js"></script>
 
-    <script>
-      (function($) {
-        $('nav li').click(function() {
-          $(this).addClass('active').siblings('li').removeClass('active');
-          $('section:nth-of-type('+$(this).data('rel')+')').stop().fadeIn(400, 'linear').siblings('section').stop().fadeOut(400, 'linear'); 
-        });
-      })(jQuery);
-    </script>
+  <script>
+    (function ($) {
+      $('nav li').click(function () {
+        $(this).addClass('active').siblings('li').removeClass('active');
+        $('section:nth-of-type(' + $(this).data('rel') + ')').stop().fadeIn(400, 'linear').siblings('section').stop().fadeOut(400, 'linear');
+      });
+    })(jQuery);
+  </script>
 </body>
 
 </html>

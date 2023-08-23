@@ -7,7 +7,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GKS100NKYL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-GKS100NKYL');
@@ -32,22 +32,19 @@
 
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-      <a class="navbar-brand" href="../"><strong>LUCAS N. EGIDIO</strong><br><small> <center> Ph.D.</center></small></a>
-      <button class="navbar-toggler" 
-      type="button" 
-      data-toggle="collapse" 
-      data-target="#navbarCollapse"
-      aria-controls="navbarCollapse" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation">
+      <a class="navbar-brand" href="../"><strong>LUCAS N. EGIDIO</strong><br><small>
+          <center> Ph.D.</center>
+        </small></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item" >
+          <li class="nav-item">
             <a class="nav-link" href="../">Home </a>
           </li>
-          <li class="nav-item active" >
+          <li class="nav-item active">
             <a class="nav-link" href="../software/">Software</a>
           </li>
           <li class="nav-item" data-rel="3">
@@ -64,45 +61,46 @@
           </li>
         </ul>
         <span class="nav-item mr-sm-2" data-rel="7">
-          <a class="nav-link" href="/pendulum/"><img id="pendulum-icon" src="../pendulum_icon.svg" alt="Pendulum Game" title="Pendulum Game" width="34" height="34"></a>
-        </span>   
+          <a class="nav-link" href="/pendulum/"><img id="pendulum-icon" src="../pendulum_icon.svg" alt="Pendulum Game"
+              title="Pendulum Game" width="34" height="34"></a>
+        </span>
       </div>
     </nav>
   </header>
 
 
-  
+
   <main role="main">
     <div class="container">
       <h1 class="h1-title">
         Contact
       </h1>
       <div class="container rightAppearing">
-        <p> <strong>LUCAS NEVES EGIDIO</strong></p>
-        <p> INMA<br>
-        Avenue Georges Lemaître 4-6/L4.05.01<br>
-        1348 Louvain-la-Neuve, Belgium</p>
-        <p>Please, reach out to me by</p>
-        <p>  <strong>
-          - e-mail:</strong> lucas.egidio 'at' uclouvain.be</p>  
+        <h2>Please, reach out to me by:</h2>
+        <ul>
 
-        <p>
-          <strong>- telegram:</strong> <a href="https://t.me/lucasegidio1"><img src="../telegram_logo.svg" width="40px"></a>
-        </p>
+          <li> <strong>e-mail:</strong> lucas.n.egidio 📧 gmail.com</li>
 
-        <p>
-          <strong>- linkedin:</strong> <a href="https://www.linkedin.com/in/lucas-egidio"><img src="../lkdin.png" width="40px"></a>
-        </p>
+          <li>
+            <strong>telegram:</strong> <a href="https://t.me/lucasegidio1"><img src="../telegram_logo.svg"
+                width="40px"></a>
+          </li>
+
+          <li>
+            <strong>linkedin:</strong> <a href="https://www.linkedin.com/in/lucas-egidio"><img src="../lkdin.png"
+                width="40px"></a>
+          </li>
+        </ul>
       </div>
-  
+
     </div>
 
 
-    
+
     <!-- FOOTER -->
     <footer class="container">
       <p class="float-right"><a href="#">Back to top</a></p>
-      
+
     </footer>
   </main>
 
@@ -118,17 +116,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-    <script src="particles/particles.js"></script>
-    <script src="particle-canvas.js"></script>
+  <script src="particles/particles.js"></script>
+  <script src="particle-canvas.js"></script>
 
-    <script>
-      (function($) {
-        $('nav li').click(function() {
-          $(this).addClass('active').siblings('li').removeClass('active');
-          $('section:nth-of-type('+$(this).data('rel')+')').stop().fadeIn(400, 'linear').siblings('section').stop().fadeOut(400, 'linear'); 
-        });
-      })(jQuery);
-    </script>
+  <script>
+    (function ($) {
+      $('nav li').click(function () {
+        $(this).addClass('active').siblings('li').removeClass('active');
+        $('section:nth-of-type(' + $(this).data('rel') + ')').stop().fadeIn(400, 'linear').siblings('section').stop().fadeOut(400, 'linear');
+      });
+    })(jQuery);
+  </script>
 </body>
 
 </html>
