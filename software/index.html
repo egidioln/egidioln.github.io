@@ -23,53 +23,25 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
 
   <!-- Bootstrap core CSS -->
-  <link href="../bootstrap.min.css" rel="stylesheet">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <!-- Custom styles for this template -->
   <link href="../carousel.css" rel="stylesheet">
 </head>
 
 <body>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <!-- Include Header -->
+  <script>
+    $(function () {
+      $("#includedHeader").load("/header.html", function() {
+        $("#nav-item-software").addClass("active")
+      })
 
-  <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-      <a class="navbar-brand" href="../"><strong>LUCAS N. EGIDIO</strong><br><small> <center> Ph.D.</center></small></a>
-      <button class="navbar-toggler" 
-      type="button" 
-      data-toggle="collapse" 
-      data-target="#navbarCollapse"
-      aria-controls="navbarCollapse" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item" >
-            <a class="nav-link" href="../">Home </a>
-          </li>
-          <li class="nav-item active" id="nav-item-curr-page">
-            <a class="nav-link" href="../software/">Software <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item" data-rel="3">
-            <a class="nav-link" href="../teaching">Teaching</a>
-          </li>
-          <li class="nav-item" data-rel="4">
-            <a class="nav-link" href="../cv">CV</a>
-          </li>
-          <li class="nav-item" data-rel="5">
-            <a class="nav-link" href="../pub">Publications</a>
-          </li>
-          <li class="nav-item" data-rel="6">
-            <a class="nav-link" href="../contact">Contact</a>
-          </li>
-        </ul>
-        <span class="nav-item mr-sm-2" data-rel="7">
-          <a class="nav-link" href="/pendulum/"><img id="pendulum-icon" src="../pendulum_icon.svg" alt="Pendulum Game" title="Pendulum Game" width="34" height="34"></a>
-        </span>   
-      </div>
-    </nav>
-  </header>
+    });
+  </script>
+  <div id="includedHeader"></div>
 
 
   
@@ -79,9 +51,9 @@
         Software
       </h1>
        &nbsp&nbsp
-      <h4> Here you will find some projects I am involved with: </h4>
+      <h4> Here you will find some projects I am/was involved with: </h4>
       <div class="container border upAppearing"> 
-      <a href="https://github.com/dionysos-dev/Dionysos.jl"><img src="https://github.com/dionysos-dev/Dionysos.jl/raw/master/logo.png" height="100px" style="background: #FFFFFF;"></a><p>
+      <a href="https://github.com/dionysos-dev/Dionysos.jl"><img src="https://raw.githubusercontent.com/dionysos-dev/Dionysos.jl/master/assets/images/logo.png" height="100px" style="background: #FFFFFF;"></a><p>
       Dionysos is the software of the ERC project Learning to control (L2C). In view of the Cyber-Physical Revolution, the only sensible way of controlling these complex systems is often by discretizing the different variables, thus transforming the model into a simple combinatorial problem on a finite-state automaton, called an abstraction of this system. The goal of L2C is to transform this approach into an effective, scalable, cutting-edge technology that will address the CPS challenges and unlock their potential. This ambitious goal will be achieved by leveraging powerful tools from Mathematical Engineering.
       </p>
       </div>
@@ -101,15 +73,10 @@
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+
 
     <script>
       (function($) {

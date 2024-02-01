@@ -56,23 +56,33 @@ body {
 }
 
 @keyframes rotate {
+  0% {
+    transform: rotateY(-180deg);
+  }
   20% {
-    transform: rotateY(180deg);
+    transform: translateX(-20px) rotateY(0deg) ;
   }
   40% {
-    transform: rotateY(360deg);
+    transform: rotateY(180deg);
   }
   100% {
-    transform: rotateY(360deg);
+    transform: rotateY(180deg);
   }
 }
 
 /* news tab */
 #topbar {
   height: 200px;
-  /* background-color:rgb(250,250,255); */
+  background-color:color-mix(in srgb, var(--bs-dark-text-emphasis) 10%, transparent);
+  padding: 1em;
   overflow: scroll;
+  border: #001a33;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+;
 }
+
 
 .navbar-brand {
   padding: 0.5ex;
@@ -169,17 +179,12 @@ header {
 }
 
 
-.navbar-nav .nav-item:active .nav-link {
-  background-color: #002ec7 !important;
-  font-weight: 1000;
-  text-decoration: underline;
-}
-
-#nav-item-curr-page {
+.navbar-nav .nav-item.active .nav-link {
   background-color: #4772ff !important;
   font-weight: 1000;
   text-decoration: underline;
 }
+
 
 .publist {
   text-align: justify;
@@ -290,22 +295,53 @@ pendulum-icon {
 }
 
 
-@keyframes sinusoidalMovement {
+
+.rounded-circle{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px; 
+  border:1px none;
+  background: #FFFFFF;
+}
+#circle-bg{
+  border-radius: 50%;
+  border:1px none;
+  background: #FFFFFF;
+}
+
+
+.upAppearing{
+    position: relative;
+    animation: upVideo 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    animation-duration: 1s;
+}
+
+.rightAppearing{
+    opacity: 0;
+    position: relative;
+    animation: rightVideo 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    animation-duration: 1s;
+    animation-delay: 0.5s;   
+}
+
+@keyframes upVideo {
   0% {
-    transform: translateX(0);
+    opacity: 0;
+    bottom: -200px;
   }
-
-  50% {
-    transform: translateX(50px);
-    /* Adjust the amplitude of the sinusoidal movement */
-  }
-
   100% {
-    transform: translateX(0);
+    opacity: 1;
+    bottom: 0px;
   }
 }
 
-.navbar-item {
-  animation: sinusoidalMovement 4s infinite;
-  /* Adjust the duration of the animation */
+@keyframes rightVideo {
+  0% {
+    opacity: 0;
+    right: -200px;
+  }
+  100% {
+    opacity: 1;
+    right: 0px;
+  }
 }

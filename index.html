@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-GKS100NKYL"></script> -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GKS100NKYL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -29,7 +29,6 @@
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="carousel.css">
 
-  <link rel="stylesheet" href="switch.css">
 </head>
 
 <body>
@@ -37,7 +36,10 @@
   <!-- Include Header -->
   <script>
     $(function () {
-      $("#includedHeader").load("header.html");
+      $("#includedHeader").load("header.html", function() {
+        $("#nav-item-home").addClass("active")
+      })
+
     });
   </script>
   <div id="includedHeader"></div>
