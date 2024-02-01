@@ -1,0 +1,57 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand" href="#"><strong>LUCAS N. EGIDIO</strong><br><small>
+                <center> Ph.D.</center>
+            </small></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav  me-auto">
+                <li class="nav-item active" data-rel="1" id="nav-item-curr-page">
+                    <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>
+                </li>
+                <li class="nav-item" data-rel="2">
+                    <a class="nav-link" href="/software/">Software</a>
+                </li>
+                <li class="nav-item" data-rel="3">
+                    <a class="nav-link" href="/teaching/">Teaching</a>
+                </li>
+                <li class="nav-item" data-rel="4">
+                    <a class="nav-link" href="/cv/">CV</a>
+                </li>
+                <li class="nav-item" data-rel="5">
+                    <a class="nav-link" href="/pub/">Publications</a>
+                </li>
+                <li class="nav-item" data-rel="6">
+                    <a class="nav-link" href="/contact/">Contact</a>
+                </li>
+            </ul>
+            <span class="navbar-text ">
+                <ul class="navbar-nav ml-auto right-navbar-btns">
+                    <li class="nav-item d-flex align-items-center" data-rel="7">
+                        <span class="dark-mode-label">&#127769;</span><label class="switch" id="dark-mode-sw">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </li>
+                    <li class="nav-item" data-rel="8">
+                        <a class="nav-link" href="/pendulum/"><img id="pendulum-icon" src="pendulum_icon.svg"
+                                alt="Pendulum Game" title="Pendulum Game" width="34" height="34"></a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+    </nav>
+</header>
+
+<script src="dark_mode_manager.js"></script>
+<script>
+    (function ($) {
+        $('nav li').click(function () {
+            $(this).addClass('active').siblings('li').removeClass('active');
+            $('section:nth-of-type(' + $(this).data('rel') + ')').animate().stop().fadeIn(400, 'linear').siblings('section').stop().fadeOut(400, 'linear');
+        });
+    })(jQuery);
+</script>
